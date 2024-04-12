@@ -1,7 +1,4 @@
-import cv2
-import subprocess
-import asyncio
-import websockets
+import cv2, subprocess, asyncio, websockets
 
 # Function to open Notepad
 def open_notepad():
@@ -37,15 +34,9 @@ async def detect_motion():
         if motion_detected:
             open_notepad()
             ip_groups = [
-                ["192.168.1.86", "192.168.1.92"],
-                ["192.168.1.100", "192.168.1.39", "192.168.1.109", "192.168.1.60"],
-                ["192.168.1.63", "192.168.1.78", "192.168.1.102", "192.168.1.61"],
-                ["192.168.1.152", "192.168.1.62", "192.168.1.153"],
-                ["192.168.1.145"],
-                ["192.168.1.81", "192.168.1.96"],
-                ["192.168.1.51", "192.168.1.80"],
-                ["192.168.1.127", "192.168.1.115"],
-                ["192.168.1.110", "192.168.1.58"],
+                ["192.168.x.xyz", "192.168.x.xyz", "192.168.x.xyz"],
+                ["192.168.x.xyz", "192.168.x.xyz"],
+                ["192.168.x.xyz"],
             ]
             # Connect to each IP and send a message
             for group in ip_groups:
@@ -77,7 +68,7 @@ async def start_ws_server():
             print("Connection closed.")
 
     # Start the WebSocket server
-    start_server = websockets.serve(ws_server, "192.168.1.101", 35369)
+    start_server = websockets.serve(ws_server, "192.168.x.xyz", 35369)
     await start_server
 
 # Main function
